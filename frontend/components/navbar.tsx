@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import ThemeToggle from "./theme-toggle"
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
 
@@ -46,7 +45,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <motion.a
             href="#"
-            className="text-xl md:text-2xl font-bold"
+            className="text-2xl md:text-3xl font-bold"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -68,20 +67,15 @@ export default function Navbar() {
                 {item.name}
               </motion.a>
             ))}
-            <div className="ml-4">
-              <ThemeToggle />
-            </div>
           </nav>
 
           {/* Mobile Navigation Toggle */}
           <div className="flex items-center md:hidden">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
-              className="ml-2"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
