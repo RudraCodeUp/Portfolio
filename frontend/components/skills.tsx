@@ -68,6 +68,22 @@ export default function Skills() {
     },
   }
 
+  // Floating animation for each card
+  const getFloatingAnimation = (index: number) => ({
+    y: [0, -15, 0],
+    x: [0, index % 2 === 0 ? 5 : -5, 0],
+    rotate: [0, index % 2 === 0 ? 1 : -1, 0],
+    opacity: [1, 0.3, 1], // Fade between 30% and 100% opacity
+  })
+
+  const floatingTransition = (index: number) => ({
+    duration: 4 + index * 0.5,
+    repeat: Infinity,
+    repeatType: "loop" as const,
+    ease: "easeInOut",
+    delay: index * 0.7, // Stagger the fading so at least 2 are always bright
+  })
+
   return (
     <section id="skills" className="py-20">
       <div className="container px-4 mx-auto">
@@ -86,9 +102,27 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-border"
+              initial={{ y: 20, opacity: 0 }}
+              animate={inView ? {
+                y: 0,
+                opacity: 1,
+              } : { opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                y: inView ? [0, -15, 0] : 0,
+                x: inView ? [0, index % 2 === 0 ? 5 : -5, 0] : 0,
+                rotate: inView ? [0, index % 2 === 0 ? 1 : -1, 0] : 0,
+              }}
             >
+              <motion.div
+                animate={inView ? getFloatingAnimation(index) : {}}
+                transition={floatingTransition(index)}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+                className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-border"
+              >
               <div className="text-primary mb-4">{skill.icon}</div>
               <h3 className="text-xl font-bold mb-2">{skill.title}</h3>
               <p className="text-muted-foreground mb-4">{skill.description}</p>
@@ -99,6 +133,7 @@ export default function Skills() {
                   </span>
                 ))}
               </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

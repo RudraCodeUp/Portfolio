@@ -17,40 +17,52 @@ interface GalleryItem {
 // Gallery items data
 const galleryItems: GalleryItem[] = [
   {
-    title: "Award Ceremony",
-    description: "Received the Outstanding Developer Award at the annual tech conference.",
-    image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-    date: "January 2023",
+    title: "National Winner IISF S&T Hackathon 2025",
+    description: "Declared National winners among 3000+ students in the India International Science Festival by Government of India and all national Science Agencies.",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "2025",
   },
   {
-    title: "Conference Presentation",
-    description: "Presented my research on modern web architecture at DevCon 2023.",
-    image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-    date: "March 2023",
+    title: "Special Recognition Award – Priority HackFest 2025",
+    description: "Built innovative AI-Based suite solution to improve priority's workspace productivity.",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "2025",
   },
   {
-    title: "Team Hackathon",
-    description: "Led our team to first place in the 48-hour coding challenge.",
-    image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-    date: "May 2023",
+    title: "Finalist – J.P. Morgan Chase Code for Good",
+    description: "Selected for the 24-hour social impact hackathon; built tech solutions for NGOs under JPMC mentorship.",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "2024",
   },
   {
-    title: "Certification Achievement",
-    description: "Completed the Advanced Full Stack Development certification program.",
-    image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-    date: "July 2023",
+    title: "Top 5 – HackWithHer Hackathon 2025",
+    description: "Built an AI-driven health-fintech integration system for women's wellness and medical claim automation (IEEE & Edifecs).",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "2025",
   },
   {
-    title: "Community Workshop",
-    description: "Organized and led a workshop teaching coding to underrepresented groups.",
-    image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-    date: "September 2023",
+    title: "Dean's List",
+    description: "Recognized for academic excellence by securing a place on the Dean's List in the first year.",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "First Year",
   },
   {
-    title: "Company Retreat",
-    description: "Team building and strategy session at our annual company gathering.",
-    image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-    date: "November 2023",
+    title: "5X Hackathon Finalist",
+    description: "Ranked among the top 5 teams in multiple events building innovative frontend and AI-full-stack projects.",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "2024-2025",
+  },
+  {
+    title: "LeetCode & Competitive Programming",
+    description: "Actively solving 400+ problems on LeetCode and Codeforces; focused on problem-solving and algorithms.",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "Ongoing",
+  },
+  {
+    title: "Class Representative",
+    description: "Three consecutive years of academic and event leadership.",
+    image: "/placeholder.svg?height=600&width=800",
+    date: "2022-2025",
   },
 ]
 

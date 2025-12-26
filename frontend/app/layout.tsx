@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import RocketLoader from '@/components/rocket-loader'
+import MouseTrail from '@/components/mouse-trail'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <MouseTrail />
           <RocketLoader />
           {children}
         </ThemeProvider>

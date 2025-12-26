@@ -77,7 +77,7 @@ export default function FloatingButtons() {
       {/* Resume Button */}
       <SocialButton 
         icon={<FileText className="w-8 h-8 text-white" />} 
-        href={profileUrl} 
+        href="/RudraMaria_Resume.pdf" 
         label="Resume"
         color="bg-primary"
         initialPosition={{ x: '15%', y: '65%' }}

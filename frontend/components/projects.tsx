@@ -12,33 +12,33 @@ const projects = [
     title: "SheWell – AI-Powered Women’s Health & Wellness Platform",
     description:
       "SheWell – AI-Powered Women’s Health & Wellness Platform SheWell is a cross-platform women’s health and wellness solution designed with compassion and technology. With both a mobile app (React Native) and a web portal, SheWell offers AI-powered support for menstrual health, pregnancy, mental well-being, emergency care, and more — all while protecting privacy and supporting accessibility.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/shewell-hero.png",
     tags: ["React", "MongoDB", "Redux", "Express", "Node.js", "Tailwind CSS"],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://she-well-ocyv.vercel.app/",
+    githubLink: "https://github.com/RudraCodeUp",
   },
   {
     title: "DigiVote India – Blockchain-Based Voting Platform",
     description: "DigiVote India is a secure and transparent online voting platform leveraging blockchain technology. It ensures fair, tamper-proof elections with decentralized governance, reducing electoral fraud and increasing voter accessibility.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/digi-vote.png",
     tags: ["Next.js", "Tailwind CSS", "React Query", "Solidity", "Ethereum", "IPFS", "Hardhat", "Ethers.js", "Node.js"],
-    liveLink: "#",
+    liveLink: "https://www.youtube.com/watch?v=rd5GJ9MC1yU",
     githubLink: "#",
   },
   {
     title: "Real-time-location-tracking",
     description: "A real-time location tracking application that provides users with live updates on their friends' locations.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/real-time.png",
     tags: ["Socket.io", "Node.js", "Express", "MongoDB", "React", "Tailwind CSS", "Geolocation API", "Leaflet"],
-    liveLink: "https://real-time-location-tracking-production.up.railway.app/",
+    liveLink: "https://real-time-location-tracking-gv9o.onrender.com/",
     githubLink: "https://github.com/RudraCodeUp/Real-time-location-tracking",
   },
   {
     title: "Nep_Saarthi_Chitkara_University",
     description: "A comprehensive platform for Chitkara University students, offering features like updates on National Educational policy, event updates, and student resources.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/nep-hero.png",
     tags: ["React", "OpenAI API", "Express", "MongoDB"],
-    liveLink: "https://nep2020-saarthis-chitkara-university.vercel.app/",
+    liveLink: "https://nep2020-saarthis-chitkara-university-oil7vhrwd.vercel.app/",
     githubLink: "https://github.com/RudraCodeUp/Nep_Saarthi_Chitkara_University",
   },
   {
@@ -62,6 +62,7 @@ const projects = [
 
 export default function Projects() {
   const [filter, setFilter] = useState("All")
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -72,17 +73,28 @@ export default function Projects() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { 
+      y: 60,
+      opacity: 0,
+      rotateX: -15,
+      scale: 0.9,
+    },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5 },
+      rotateX: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.6,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
     },
   }
 
@@ -121,31 +133,61 @@ export default function Projects() {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          style={{ perspective: "1000px" }}
         >
           {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all border border-border group"
+              onHoverStart={() => setHoveredIndex(index)}
+              onHoverEnd={() => setHoveredIndex(null)}
+              whileHover={{ 
+                y: -10,
+                scale: 1.03,
+                rotateY: hoveredIndex === index ? 2 : 0,
+                transition: { duration: 0.3 }
+              }}
+              className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all border border-border group relative"
+              style={{ 
+                transformStyle: "preserve-3d",
+              }}
             >
               <div className="relative overflow-hidden h-48">
-                <img
+                <motion.img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.4 }}
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                    <Button size="sm" variant="secondary" className="rounded-full">
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  <motion.a 
+                    href={project.liveLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button size="sm" variant="secondary" className="rounded-full shadow-lg">
                       <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
                     </Button>
-                  </a>
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                    <Button size="sm" variant="outline" className="rounded-full bg-background/80">
+                  </motion.a>
+                  <motion.a 
+                    href={project.githubLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button size="sm" variant="outline" className="rounded-full bg-background/90 shadow-lg">
                       <Github className="w-4 h-4 mr-2" /> Code
                     </Button>
-                  </a>
-                </div>
+                  </motion.a>
+                </motion.div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
