@@ -19,25 +19,31 @@ const galleryItems: GalleryItem[] = [
   {
     title: "National Winner IISF S&T Hackathon 2025",
     description: "Declared National winners among 3000+ students in the India International Science Festival by Government of India and all national Science Agencies.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/ANI-20251209233753.jpg",
     date: "2025",
   },
   {
     title: "Special Recognition Award – Priority HackFest 2025",
     description: "Built innovative AI-Based suite solution to improve priority's workspace productivity.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/IMG-20250920-WA0062.jpg",
     date: "2025",
   },
   {
     title: "Finalist – J.P. Morgan Chase Code for Good",
     description: "Selected for the 24-hour social impact hackathon; built tech solutions for NGOs under JPMC mentorship.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/IMG-20250607-WA0096.jpg",
+    date: "2024",
+  },
+  {
+    title: "EY DSCI Cybersecurity Hackathon Finalist",
+    description: "Achieved Top 30 out of 300 teams in the EY DSCI cybersecurity hackathon, showcasing skills in security solutions and threat mitigation.",
+    image: "/IMG20251203083436.jpg",
     date: "2024",
   },
   {
     title: "Top 5 – HackWithHer Hackathon 2025",
     description: "Built an AI-driven health-fintech integration system for women's wellness and medical claim automation (IEEE & Edifecs).",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/IMG-20250503-WA0007.jpg",
     date: "2025",
   },
   {
@@ -49,7 +55,7 @@ const galleryItems: GalleryItem[] = [
   {
     title: "5X Hackathon Finalist",
     description: "Ranked among the top 5 teams in multiple events building innovative frontend and AI-full-stack projects.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/IMG-20250519-WA0010.jpg",
     date: "2024-2025",
   },
   {
