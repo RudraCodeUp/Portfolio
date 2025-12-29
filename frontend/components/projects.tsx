@@ -51,10 +51,10 @@ const projects = [
     githubLink: "https://github.com/RudraCodeUp/CraveCart-backend",
   },
   {
-    title: "Weather Dashboard",
-    description: "A weather application that provides current conditions and forecasts for locations worldwide.",
+    title: "JanSamadhan - Civic Reporting Platform",
+    description: "A comprehensive civic reporting system with a mobile app for citizens to register complaints and a web portal for municipality management. Features a 3-tier government architecture (Field Worker → Staff → Admin) for efficient complaint resolution and tracking.",
     image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "Weather API", "Chart.js", "Geolocation API"],
+    tags: ["React Native", "Next.js", "Node.js", "Express", "MongoDB", "Redux", "Tailwind CSS", "Role-Based Access"],
     liveLink: "#",
     githubLink: "#",
   },
